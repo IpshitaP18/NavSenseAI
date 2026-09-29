@@ -39,24 +39,22 @@ NAV_ITEMS = ["Live Detection", "Guidance", "About"]
 
 # ---------------------------------------------------------------------------
 # Design tokens
-#
-# Vibrant, high-contrast AI/Navigation tech palette.
 # ---------------------------------------------------------------------------
-COLOR_BG = "#0B132B"            # Page background - deep space navy
-COLOR_SURFACE = "#1C2541"       # Primary panels - distinct dark blue-slate
-COLOR_SURFACE_ALT = "#2A365B"   # Nested elements/cards - lighter navy
-COLOR_BORDER = "#00F0FF"        # High-visibility Electric Cyan border for UI containers
-COLOR_BORDER_FOCUS = "#00F0FF"  # Highlighted border color
-COLOR_TEXT = "#FFFFFF"          # Primary text - pure crisp white
-COLOR_TEXT_MUTED = "#C5D1EC"    # Secondary text - high-contrast blue-white
-COLOR_ACCENT = "#00F0FF"        # Primary accent - Electric Cyan (AI/Sight)
-COLOR_ACCENT_SOFT = "rgba(0, 240, 255, 0.12)" # Soft cyan translucency
-COLOR_AMBER = "#FFB703"         # Secondary accent - Warm Amber (Right direction)
-COLOR_SUCCESS = "#00E676"       # Vivid Green - Center direction & active state
-COLOR_ERROR = "#FF5252"         # Vivid Red - Camera/System errors
+COLOR_BG = "#F7F1E3"            # Warm ivory page background
+COLOR_SURFACE = "#FFFDF7"       # Clean paper-like panels
+COLOR_SURFACE_ALT = "#EFE5C9"   # Pressed-petal secondary surface
+COLOR_BORDER = "#B9AA78"        # Soft botanical border
+COLOR_BORDER_FOCUS = "#3F6B45"  # Leaf-green focus color
+COLOR_TEXT = "#2E2A22"          # Warm charcoal text
+COLOR_TEXT_MUTED = "#706757"    # Muted bark text
+COLOR_ACCENT = "#3F6B45"        # Leaf green primary accent
+COLOR_ACCENT_SOFT = "rgba(63, 107, 69, 0.12)" # Soft leaf tint
+COLOR_AMBER = "#C87820"         # Marigold directional accent
+COLOR_SUCCESS = "#568044"       # Fresh leaf active state
+COLOR_ERROR = "#A7442E"         # Earthy terracotta error state
 
-# BGR tuple for OpenCV camera bounding box overlay (High-Vis Neon Yellow: BGR = 0, 255, 255)
-BOX_COLOR_BGR = (0, 255, 255)
+# BGR tuple for OpenCV camera bounding box overlay (high-visibility marigold)
+BOX_COLOR_BGR = (32, 120, 200)
 
 
 # ---------------------------------------------------------------------------
@@ -85,11 +83,11 @@ def inject_css():
     render_html(f"""
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Mono:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
 
     <style>
         html, body, [class*="css"] {{
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            font-family: 'Manrope', -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
             color: {COLOR_TEXT};
         }}
 
@@ -112,12 +110,12 @@ def inject_css():
             background-color: {COLOR_SURFACE} !important;
             border: 2px solid {COLOR_BORDER} !important;
             border-radius: 12px !important;
-            box-shadow: 0 0 12px rgba(0, 240, 255, 0.25);
+            box-shadow: 0 14px 34px rgba(63, 79, 48, 0.10);
         }}
 
         /* Distinct font for "Camera settings" expander */
         [data-testid="stExpander"] summary p {{
-            font-family: 'Space Mono', monospace !important;
+            font-family: 'Manrope', sans-serif !important;
             font-size: 0.95rem !important;
             font-weight: 700 !important;
             letter-spacing: 0.08em !important;
@@ -154,7 +152,7 @@ def inject_css():
             font-weight: 700;
             margin: 0;
             color: {COLOR_TEXT};
-            letter-spacing: -0.01em;
+            letter-spacing: 0;
         }}
         .ns-brand-text p {{
             font-size: 0.8rem;
@@ -304,9 +302,9 @@ def inject_css():
             border-radius: 8px;
             letter-spacing: 0.02em;
         }}
-        .ns-direction-left   {{ background: rgba(0, 240, 255, 0.15); color: {COLOR_ACCENT}; border: 1px solid {COLOR_ACCENT}; }}
-        .ns-direction-center {{ background: rgba(0, 230, 118, 0.15); color: {COLOR_SUCCESS}; border: 1px solid {COLOR_SUCCESS}; }}
-        .ns-direction-right  {{ background: rgba(255, 183, 3, 0.15); color: {COLOR_AMBER}; border: 1px solid {COLOR_AMBER}; }}
+        .ns-direction-left   {{ background: rgba(99, 61, 80, 0.12); color: #633D50; border: 1px solid #8A6575; }}
+        .ns-direction-center {{ background: rgba(86, 128, 68, 0.14); color: {COLOR_SUCCESS}; border: 1px solid {COLOR_SUCCESS}; }}
+        .ns-direction-right  {{ background: rgba(200, 120, 32, 0.14); color: {COLOR_AMBER}; border: 1px solid {COLOR_AMBER}; }}
 
         /* ---------- Guidance page ---------- */
         .ns-guidance-panel {{
@@ -425,7 +423,7 @@ def inject_css():
             width: 52px;
             height: 100vh;
             background-image: url("{RAIL_PATTERN_DATA_URI}"),
-                linear-gradient(180deg, {COLOR_ACCENT} 0%, #152238 75%, {COLOR_BG} 100%);
+                linear-gradient(180deg, #3F6B45 0%, #315238 72%, #243D2A 100%);
             background-repeat: repeat-y, no-repeat;
             background-position: top center, center;
             background-size: 52px 120px, cover;
@@ -441,14 +439,14 @@ def inject_css():
             width: 34px;
             height: 34px;
             border-radius: 10px;
-            background: rgba(0, 0, 0, 0.4);
+            background: rgba(255, 253, 247, 0.12);
             color: {COLOR_ACCENT};
             border: 1px solid {COLOR_ACCENT};
             display: flex;
             align-items: center;
             justify-content: center;
             flex-shrink: 0;
-            box-shadow: 0 0 12px {COLOR_ACCENT};
+            box-shadow: 0 5px 18px rgba(26, 48, 30, 0.28);
         }}
         .ns-edge-label {{
             writing-mode: vertical-rl;
@@ -456,9 +454,60 @@ def inject_css():
             font-size: 0.72rem;
             font-weight: 700;
             letter-spacing: 0.22em;
-            color: #FFFFFF;
+            color: #FFFDF7;
             white-space: nowrap;
             margin-bottom: 1rem;
+        }}
+
+
+        /* ---------- Botanical finish & responsive layout ---------- */
+        .ns-brand-text h1, .ns-page-title, .ns-empty-title, .ns-about-heading h3 {{
+            font-family: 'Fraunces', Georgia, serif;
+        }}
+        .ns-page-title {{
+            font-size: clamp(1.9rem, 4vw, 3rem);
+            line-height: 1.08;
+        }}
+        .ns-logo-mark, .ns-empty-icon, .ns-guidance-icon {{
+            border-radius: 50%;
+        }}
+        .ns-logo-mark {{
+            position: relative;
+            box-shadow: 0 5px 16px rgba(63, 107, 69, 0.16);
+        }}
+        .ns-logo-mark::after {{
+            content: '';
+            position: absolute;
+            width: 9px;
+            height: 9px;
+            right: -3px;
+            top: -2px;
+            border-radius: 50%;
+            background: {COLOR_AMBER};
+            border: 2px solid {COLOR_SURFACE};
+        }}
+        .ns-navbar-divider {{ border-color: rgba(98, 82, 52, 0.24); }}
+        .ns-status-pill {{ box-shadow: 0 5px 18px rgba(63, 79, 48, 0.10); }}
+        .ns-guidance-panel, .ns-about-panel {{
+            border-width: 1px;
+            box-shadow: 0 18px 48px rgba(63, 79, 48, 0.10);
+        }}
+        .ns-about-step {{ border-width: 1px; }}
+        [data-testid="stAppViewContainer"] {{
+            background-image:
+                radial-gradient(circle at 92% 8%, rgba(200, 120, 32, 0.10) 0 4.5rem, transparent 4.6rem),
+                radial-gradient(circle at 89% 5%, rgba(63, 107, 69, 0.08) 0 8rem, transparent 8.1rem);
+        }}
+        .stButton>button:focus, button:focus-visible, input:focus-visible {{
+            outline: 3px solid rgba(63, 107, 69, 0.24) !important;
+            outline-offset: 2px;
+        }}
+        @media (max-width: 760px) {{
+            .block-container {{ padding: 1rem 1rem 2rem 1rem; }}
+            .ns-edge-rail {{ display: none; }}
+            .ns-page-title {{ margin-top: 0.5rem; }}
+            .ns-status-wrap {{ justify-content: flex-start; margin-bottom: 0.8rem; }}
+            .ns-guidance-panel, .ns-about-panel {{ padding: 1.2rem; }}
         }}
 
         /* Native Button styling tweak */
@@ -671,7 +720,7 @@ def load_detector(confidence_threshold: float) -> ObjectDetector:
 
 
 def draw_detection(frame, class_name, confidence, direction, box):
-    """Draws bounding box + label directly on the frame in high-visibility Neon Yellow."""
+    """Draws bounding box + label directly on the frame in high-visibility marigold."""
     x1, y1, x2, y2 = box
     cv2.rectangle(frame, (x1, y1), (x2, y2), BOX_COLOR_BGR, 3)
 
