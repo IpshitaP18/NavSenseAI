@@ -164,34 +164,12 @@ pip install -r requirements.txt
 Run:
 
 ```bash
-python app.py
+streamlit run streamlit.py
 ```
 
 The webcam will open and detected objects will be displayed with their bounding boxes, class names, confidence values, and directions.
 
-Press:
-
-```text
-Q
-```
-
-to exit the application.
-
 On the first run, Ultralytics may download the YOLOv8 model weights automatically.
-
----
-
-# 🖥️ Current Demo Interface
-
-The project may also contain a Streamlit-based demonstration interface for presenting the current prototype.
-
-If retained, it can be launched using:
-
-```bash
-python -m streamlit run <streamlit_file>.py
-```
-
-The Streamlit interface is currently treated as a prototype/demo layer. The long-term project direction is to move toward a React-based frontend while keeping the AI pipeline in Python.
 
 ---
 
