@@ -76,24 +76,10 @@ NavSenseAI/
 ├── requirements.txt
 ├── README.md
 ├── .gitignore
-│
-└── .streamlit/
-    └── config.toml
+├── config.toml
+└── streamlit.py
+
 ```
-
-### `app.py`
-
-Main entry point of the current prototype.
-
-It:
-
-* Opens the webcam
-* Captures frames using OpenCV
-* Sends frames to the object detector
-* Calculates object direction
-* Displays the detection results
-
-The current prototype uses `cv2.VideoCapture()` for webcam input and displays the processed frames using OpenCV.
 
 ### `detection.py`
 
