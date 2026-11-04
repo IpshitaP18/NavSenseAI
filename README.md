@@ -39,7 +39,6 @@ The system combines YOLOv8 object detection, MiDaS depth estimation, and intelli
 ```text
 NavSenseAI/
 │
-├── app.py                 # Standalone webcam detection
 ├── streamlit_app.py       # Main Streamlit application
 │
 ├── detection.py           # YOLOv8 object detection
